@@ -103,7 +103,7 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    loofah (2.21.4)
+    loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
     mail (2.8.1)
@@ -118,7 +118,7 @@ GEM
     minitest (5.20.0)
     msgpack (1.7.2)
     mysql2 (0.5.5)
-    net-imap (0.4.4)
+    net-imap (0.4.5)
       date
       net-protocol
     net-pop (0.1.2)
@@ -127,9 +127,10 @@ GEM
       timeout
     net-smtp (0.4.0)
       net-protocol
-    nio4r (2.5.9)
+    nio4r (2.6.0)
     nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
+    pg (1.5.4)
     psych (5.1.1.1)
       stringio
     public_suffix (5.0.3)
@@ -224,6 +225,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   mysql2 (~> 0.5)
+  pg
   puma (~> 5.0)
   rails (~> 7.0.0)
   selenium-webdriver
