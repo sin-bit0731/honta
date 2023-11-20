@@ -37,7 +37,7 @@ https://honta.onrender.com
 
 # テスト用アカウント
 
-
+Basic認証 ID:sinbit/Pass:0731
 
 # 利用方法
 
