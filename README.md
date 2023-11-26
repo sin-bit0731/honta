@@ -83,7 +83,7 @@ https://1drv.ms/x/s!AuynhhoobtlShKN9RuHWH_cRZ01rCA?e=AQX9Ye
 
 # データベース設計
 
-ER図：https://i.gyazo.com/f1ac2d1066ee659ba27c327a71a9f7b6.png
+ER図：https://i.gyazo.com/76ed6866583fed76114f5714bfff899b.png
 
 # 画面遷移図
 
