@@ -1,5 +1,6 @@
 <header class='top-page-header'>
   <div class='search-bar-contents'>
+    <%= link_to image_tag("honta_logo.png", class:"honta-icon"), "/" %>
     <form class="search-form" action="#">
       <input class='input-box' placeholder='本を探す'>
       <button class="search-button">
@@ -8,12 +9,22 @@
     </form>
   </div>
   <div class='nav'>
-    <ul class='lists-left'>
-      <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
-    </ul>
-    <ul class='lists-right'>
-      <li><%= link_to "#", class: "user-nickname" %></li>
-      <li><%= link_to 'ログアウト', class: "logout" %></li>
-    </ul>  
+    <% if user_signed_in? %>
+      <ul class='lists-left'>
+        <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
+      </ul>
+      <ul class='lists-right'>
+        <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete}, class: "logout" %></li>
+      </ul>
+    <% else %>
+      <ul class='lists-left'>
+        <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
+      </ul>
+      <ul class='lists-right'>
+        <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+        <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+      </ul>
+    <% end %>
   </div>
 </header>

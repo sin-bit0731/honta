@@ -1,4 +1,3 @@
-
 <%= render "shared/header" %>
 <div class='main'>
 
@@ -12,17 +11,13 @@
     <p class='service-explain'>
       書籍貸し出しサービスです
     </p>
-    <div class='store-btn'>
-      <%= link_to image_tag("app-store.svg", class:"apple-btn"), "#" %>
-      <%= link_to image_tag("google-play.png", class:"google-btn"), "#" %>
-    </div>
   </div>
 
-  <%# 貸し出し書籍一覧 %>
+  <%# 書籍一覧 %>
   <div class='item-contents'>
     <h2 class='title'>ピックアップカテゴリー</h2>
     <div class="subtitle" >
-      新規貸し出し書籍
+      新規投稿書籍
     </div>
     <ul class='item-lists'>
 
@@ -41,7 +36,7 @@
             <%= "書名" %>
           </h3>
           <div class='item-price'>
-            <span><%= "著者名" %><br><%= '出版社名' %></span>
+            <span><%= "著者名" %>円<br><%= '出版社名' %></span>
             <div class='star-btn'>
               <%= image_tag "star.png", class:"star-icon" %>
               <span class='star-count'>0</span>
@@ -56,10 +51,10 @@
         <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
         <div class='item-info'>
           <h3 class='item-name'>
-            本をお貸しください！
+            本を貸してください
           </h3>
           <div class='item-price'>
-            <span>芥川龍之介<br>honta文庫</span>
+            <span>書名</span>
             <div class='star-btn'>
               <%= image_tag "star.png", class:"star-icon" %>
               <span class='star-count'>0</span>
@@ -70,11 +65,10 @@
       </li>
     </ul>
   </div>
-  <%# /貸し出し書籍一覧 %>
+  <%# /書籍一覧 %>
 </div>
 <%= link_to('#', class: 'purchase-btn') do %>
-  <span class='purchase-btn-text'>貸し出し</span>
+  <span class='purchase-btn-text'>貸し出す</span>
   <%= image_tag 'icon_camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
 <% end %>
-
 <%= render "shared/footer" %>
