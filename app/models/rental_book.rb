@@ -3,6 +3,7 @@ class RentalBook < ApplicationRecord
   belongs_to :category
   belongs_to :condition
   belongs_to :user
+  has_one_attached :image
 
   validates :title, :text, presence: true
 
