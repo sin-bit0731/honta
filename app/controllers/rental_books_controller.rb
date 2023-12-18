@@ -2,7 +2,11 @@ class RentalBooksController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    @rental_books = Rental_book.order("created_at DESC")
+    @rental_books = RentalBook.all.order(created_at: :desc)
+  end
+
+  def new
+    @rental_book = Rental_book.new
   end
 
   private
