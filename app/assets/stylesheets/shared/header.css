@@ -7,7 +7,7 @@
   padding: 2vh 15vw;
   display: flex;
   flex-direction: column;
-  background-image: url("https://png.pngtree.com/background/20230522/original/pngtree-animation-paper-clouds-and-moon-with-sky-lights-in-the-sky-picture-image_2687572.jpg");
+  background: #BBFFFF;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;
@@ -50,7 +50,7 @@
 }
 
 .nav {
-  font-size: 25px;
+  font-size: 15px;
   font-weight: 100;
   display: flex;
   justify-content: space-between;
@@ -62,7 +62,7 @@
 .lists-left {
   display: flex;
   min-width: 200px;
-
+  text-align: right;
 }
 
 .category-list {
@@ -80,6 +80,7 @@
   display: flex;
   list-style: none;
   align-items: flex-end;
+  text-align: right;
 }
 
 
@@ -106,4 +107,44 @@
 .sign-up {
   text-decoration: none;
   color: #333333;
+}
+
+.button-left {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  color: #000000;
+  background-color: #FFFF66;
+  min-width: 120px;
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.button-right {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  color: #000000;
+  background-color: #FFFF66;
+  min-width: 120px;
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
+  text-align: right;
+  font-weight: bold;
+}
+
+.button-right-left {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  color: #000000;
+  background-color: #FFFF66;
+  min-width: 120px;
+  margin-right: 5px;
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
+  text-align: right;
+  font-weight: bold;
 }

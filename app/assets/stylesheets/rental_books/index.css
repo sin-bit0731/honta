@@ -3,16 +3,16 @@ a {
 }
 
 .main {
-  background-image: url("honta_background_image.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: top center;
+  background: #f8f8f8;
   height: 100vh;
 }
 
 /* 画面上部の「人生を変えるフリマアプリ」帯部分 */
 .title-contents {
   width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -48,6 +48,7 @@ a {
 /* 商品一覧 */
 
 .item-contents {
+  background-color: #FFF;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -78,6 +79,7 @@ a {
 .item-lists>.list {
   width: 37vh;
   padding: 1vw;
+  background-color: #FFF;
 }
 
 
@@ -107,6 +109,7 @@ a {
 
 
 .item-info {
+  background-color: #FFF;
   color: black;
   padding: 1vw;
 }

@@ -13,6 +13,9 @@ class RentalBooksController < ApplicationController
     @rental_book = RentalBook.new(rental_book_params)
   end
 
+  def destroy
+  end
+
   private
 
   def rental_book_params
