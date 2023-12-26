@@ -11,6 +11,11 @@ class RentalBooksController < ApplicationController
 
   def create
     @rental_book = RentalBook.new(rental_book_params)
+    if @rental_book.save
+      redirect_to root_path(id: current_user)
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -19,7 +24,7 @@ class RentalBooksController < ApplicationController
   private
 
   def rental_book_params
-    params.require(:rental_book).permit(:title, :auther, :publisher, :category_id, :condition_id, :description, :image).merge(user_id: current_user.id)
+    params.require(:rental_book).permit(:title, :author, :publisher, :category_id, :condition_id, :description, :image).merge(user_id: current_user.id)
   end
 
   def move_to_index

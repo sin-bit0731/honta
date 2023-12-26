@@ -25,7 +25,7 @@
         <li class='list'>
           <%= link_to rental_book_path(rental_book.id) do %>
           <div class='item-img-content'>
-            <%= image_tag "item-sample.png", class: "item-img" %>
+            <%= image_tag rental_book.image, class: "item-img" %>
 
             <div class='sold-out'>
               <span>Lent!</span>
@@ -37,7 +37,7 @@
               <%= rental_book.title %>
             </h3>
             <div class='item-price'>
-              <span><%= rental_book.auther %><br><%= rental_book.publisher %></span>
+              <span><%= rental_book.author %><br><%= rental_book.publisher %></span>
               <div class='star-btn'>
                 <%= image_tag "star.png", class:"star-icon" %>
                 <span class='star-count'>0</span>
