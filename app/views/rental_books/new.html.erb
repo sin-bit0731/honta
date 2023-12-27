@@ -66,7 +66,8 @@
 
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
-      <%= f.submit "貸し出す", class:"sell-btn" %>
+      <label><input id="check" type="checkbox"> honta利用規約に同意する</label>
+      <%= f.submit "貸し出す", class:"rental-btn"%>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
