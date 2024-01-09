@@ -3,75 +3,80 @@
     <%= link_to image_tag('honta_logo.png' , size: '185x50'), "/" %>
 
   </header>
-  <div class="items-sell-main">
-    <h2 class="items-sell-title">商品の情報を入力</h2>
-    <%= form_with model: @rental_book, data: {turbo: false }, local: true do |f| %>
+  <%= form_with model: @rental_book, data: {turbo: false }, local: true do |f| %>
+    <div class="items-sell-main">
+    <h2 class="items-sell-title">書籍の情報を入力</h2>
+    
+      <% render 'shared/error_messages', model: f.object %>
 
-    <% render 'shared/error_messages', model: f.object %>
-
-    <%# 書籍画像 %>
-    <div class="img-upload">
-      <div class="weight-bold-text">
-        書籍画像
-        <span class="indispensable">必須</span>
-      </div>
-      <div class="click-upload">
-        <p>
-          クリックしてファイルをアップロード
-        </p>
-        <%= f.file_field :image, id:"item-image" %>
-      </div>
-    </div>
-    <%# /書籍画像 %>
-    <%# 書名と商品説明 %>
-    <div class="new-items">
-      <div class="weight-bold-text">
-        書名
-        <span class="indispensable">必須</span>
-      </div>
-      <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"書名（必須 40文字まで)", maxlength:"40" %>
-      <div class="weight-bold-text">
-        著者名
-        <span class="indispensable">必須</span>
-      </div>
-      <%= f.text_area :author, class:"items-text", placeholder:"著者名（必須 20文字まで)", maxlength:"20" %>
-      <div class="items-explain">
+      <%# 書籍画像 %>
+      <div class="img-upload">
         <div class="weight-bold-text">
-          書籍の説明
+          書籍画像
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :description, class:"items-text", id:"item-info", placeholder:"書籍の説明（必須 1,000文字まで）（定価、注意点など）例）2015年に新品で購入しました。本の状態は、良好です。暗所で大事に保管していました。" ,rows:"7" ,maxlength:"1000" %>
+        <div class="click-upload">
+          <p>
+            クリックしてファイルをアップロード
+          </p>
+          <%= f.file_field :image, id:"item-image" %>
+        </div>
       </div>
-    </div>
-    <%# /書名と商品説明 %>
-
-    <%# 書籍の詳細 %>
-    <div class="items-detail">
-      <div class="weight-bold-text">商品の詳細</div>
-      <div class="form">
+      <%# /書籍画像 %>
+      <%# 書名と商品説明 %>
+      <div class="new-items">
         <div class="weight-bold-text">
-          カテゴリー
+          書名
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+        <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"書名（必須 40文字まで)", maxlength:"40" %>
         <div class="weight-bold-text">
-          書籍の状態
+          著者名
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:condition_id, Condition.all, :id, :name, {}, {class:"select-box", id:"item-sales-status"}) %>
+        <%= f.text_area :author, class:"items-text", placeholder:"著者名（必須 20文字まで)", maxlength:"20" %>
+        <div class="weight-bold-text">
+          出版社名
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :publisher, class:"items-text", placeholder:"出版社名（必須 20文字まで)", maxlength:"20" %>
+        <div class="items-explain">
+          <div class="weight-bold-text">
+            書籍の説明
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_area :description, class:"items-text", id:"item-info", placeholder:"書籍の説明（必須 1,000文字まで）（定価、注意点など）例）2015年に新品で購入しました。本の状態は、良好です。暗所で大事に保管していました。" ,rows:"7" ,maxlength:"1000" %>
+        </div>
       </div>
-    </div>
-    <%# /書籍の詳細 %>
+      <%# /書名と書籍説明 %>
+
+      <%# 書籍の詳細 %>
+      <div class="items-detail">
+        <div class="weight-bold-text">書籍の詳細</div>
+        <div class="form">
+          <div class="weight-bold-text">
+            カテゴリー
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+          <div class="weight-bold-text">
+            書籍の状態
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:condition_id, Condition.all, :id, :name, {}, {class:"select-box", id:"item-sales-status"}) %>
+        </div>
+      </div>
+      <%# /書籍の詳細 %>
 
 
-    <%# 下部ボタン %>
-    <div class="sell-btn-contents">
-      <label><input id="check" type="checkbox"> honta利用規約に同意する</label>
-      <%= f.submit "貸し出す", class:"rental-btn"%>
-      <%=link_to 'もどる', root_path, class:"back-btn" %>
+      <%# 下部ボタン %>
+      <div class="sell-btn-contents">
+        <label><input id="check" type="checkbox"> honta利用規約に同意する</label>
+        <%= f.submit "レンタル", class:"rental-btn"%>
+        <%=link_to 'もどる', root_path, class:"back-btn" %>
+      </div>
+      <%# /下部ボタン %>
     </div>
-    <%# /下部ボタン %>
-  </div>
   <% end %>
 
   <footer class="items-sell-footer">

@@ -9,8 +9,17 @@ class RentalBook < ApplicationRecord
     validates :title
     validates :author
     validates :description
+    validates :publisher
   end
 
   validates :category_id, numericality: { other_than: 1, message: "can't be blank"}
   validates :condition_id, numericality: { other_than: 1, message: "can't be blank"}
+
+  validate :image_presence
+
+  private
+
+  def image_presence
+    errors.add(:image, 'must be attached') unless image.attached?
+  end
 end
