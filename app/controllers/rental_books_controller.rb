@@ -1,4 +1,5 @@
 class RentalBooksController < ApplicationController
+  before_action :set_rental_book, only: [:show]
   before_action :move_to_index, except: [:index, :show]
 
   def index
@@ -18,6 +19,10 @@ class RentalBooksController < ApplicationController
     end
   end
 
+  def show
+    @user = @rental_book.user
+  end
+
   def destroy
   end
 
@@ -31,5 +36,9 @@ class RentalBooksController < ApplicationController
     unless user_signed_in?
       redirect_to action: :index
     end
+  end
+
+  def set_rental_book
+    @rental_book = RentalBook.find(params[:id])
   end
 end
