@@ -4,5 +4,6 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
   root to: "rental_books#index"
-  resources :rental_books, only: [:new, :create, :destroy]
+  resources :rental_books, only: [:new, :create, :show, :destroy]
+  resources :users, only: [:show]
 end
