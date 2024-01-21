@@ -1,5 +1,5 @@
 class RentalBooksController < ApplicationController
-  before_action :set_rental_book, only: [:show]
+  before_action :set_rental_book, only: [:show, :edit, :update]
   before_action :move_to_index, except: [:index, :show]
 
   def index
@@ -21,6 +21,18 @@ class RentalBooksController < ApplicationController
 
   def show
     @user = @rental_book.user
+  end
+
+  def edit
+  end
+
+  def update
+    @rental_book.update(rental_book_params)
+    if @rental_book.update(rental_book_params)
+      redirect_to rental_book_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
