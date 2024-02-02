@@ -1,6 +1,7 @@
 class RentalBooksController < ApplicationController
-  before_action :set_rental_book, only: [:show]
+  before_action :set_rental_book, only: [:show, :edit, :update]
   before_action :move_to_index, except: [:index, :show]
+  before_action :contributor_confirmation, only: [:edit, :update]
 
   def index
     @rental_books = RentalBook.all.order(created_at: :desc)
@@ -23,6 +24,18 @@ class RentalBooksController < ApplicationController
     @user = @rental_book.user
   end
 
+  def edit
+  end
+
+  def update
+    @rental_book.update(rental_book_params)
+    if @rental_book.update(rental_book_params)
+      redirect_to rental_book_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def destroy
   end
 
@@ -36,6 +49,10 @@ class RentalBooksController < ApplicationController
     unless user_signed_in?
       redirect_to action: :index
     end
+  end
+
+  def contributor_confirmation
+    redirect_to root_path unless current_user == @rental_book.user
   end
 
   def set_rental_book
