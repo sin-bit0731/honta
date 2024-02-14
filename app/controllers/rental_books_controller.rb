@@ -1,7 +1,7 @@
 class RentalBooksController < ApplicationController
-  before_action :set_rental_book, only: [:show, :edit, :update]
+  before_action :set_rental_book, only: [:show, :edit, :update, :destroy]
   before_action :move_to_index, except: [:index, :show]
-  before_action :contributor_confirmation, only: [:edit, :update]
+  before_action :contributor_confirmation, only: [:edit, :update, :destroy]
 
   def index
     @rental_books = RentalBook.all.order(created_at: :desc)
@@ -37,6 +37,9 @@ class RentalBooksController < ApplicationController
   end
 
   def destroy
+    @rental_book = RentalBook.find(params[:id])
+    @rental_book.destroy
+    redirect_to root_path(id: current_user)
   end
 
   private
