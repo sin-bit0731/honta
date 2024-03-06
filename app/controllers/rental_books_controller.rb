@@ -38,7 +38,7 @@ class RentalBooksController < ApplicationController
 
   def destroy
     @rental_book = RentalBook.find(params[:id])
-    @rental_book.destroy
+    @rental_book.destroy(rental_book_params)
     redirect_to root_path(id: current_user)
   end
 
