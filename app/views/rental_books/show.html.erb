@@ -17,14 +17,14 @@
       <% if current_user.id == @rental_book.user_id %>
         <%= link_to "書籍情報の編集", edit_rental_book_path(@rental_book.id), data: { turbo_method: :get }, class: "item-red-btn" %>
         <p class="or-text">or</p>
-        <%= link_to "削除", "#", method: :delete, class:"item-destroy" %>
+        <%= link_to "削除", root_path(@rental_book.id), data: { turbo_method: :delete }, class:"item-destroy" %>
       <% else %>
         <%= link_to "レンタル申請画面に進む", "#" ,class:"item-red-btn"%>
       <% end %>
     <% end %>
 
     <div class="item-explain-box">
-      <span><%= "書籍について" %></span>
+      <span><%= "書籍情報" %></span>
     </div>
     <table class="detail-table">
       <tbody>
